@@ -1,81 +1,84 @@
 # ITNPA Research Project
 
 ## Project Overview
-This project applies Natural Language Processing (NLP) and
-Machine Learning techniques to classify, summarise and
-analyse research documents.
 
-The project covers Questions 1–4 and includes datasets,
-Jupyter Notebook analyses, visualisations and a Streamlit
-web application.
+This project focuses on using Natural Language Processing (NLP) and Machine Learning to classify, summarise and analyse research papers.
+
+The project covers Questions 1 to 4, where I worked with research abstracts and articles using different machine learning and text analysis techniques. The repository contains the datasets, Jupyter Notebook, visualisations and Streamlit application used in the project.
 
 ## Question 1: Research Abstract Classification
-Research abstracts were preprocessed and converted into
-numerical features using TF-IDF.
 
-A Logistic Regression classifier was trained to distinguish
-between AI Research and Classical Research.
+For Question 1, I cleaned the research abstracts and used TF-IDF to convert the text into numerical features that a machine learning model could understand.
 
-Results:
+I then trained a Logistic Regression model to classify the abstracts as either AI Research or Classical Research.
+
+The model achieved:
 - Training accuracy: 90.86%
 - Testing accuracy: 88.16%
 
 ## Question 2: Model Comparison, Improvement and Deployment
-Four additional classification algorithms were evaluated:
+
+For Question 2, I tested four more machine learning models to see whether they could perform better than Logistic Regression.
+
+The models were:
 - Multinomial Naive Bayes
-- Linear Support Vector Machine
+- Linear Support Vector Machine (SVM)
 - Random Forest
 - Decision Tree
 
-The improved Random Forest model used:
-- TF-IDF with unigrams and bigrams
-- Chi-square feature selection
-- Random Forest classification
+Random Forest achieved the highest testing accuracy out of these four models.
 
-Best testing accuracy: 93.42%
+I then tried different ways to improve its performance, including hyperparameter tuning, class weighting and feature engineering. The best results came from improving the TF-IDF features by including single words and two-word phrases, followed by chi-squared feature selection.
 
-The trained model was deployed using Streamlit.
+The improved Random Forest achieved a testing accuracy of 93.42%.
+
+I also created a Streamlit web application where users can enter a research abstract and get a prediction of whether it belongs to AI Research or Classical Research.
 
 ## Question 3: Research Document Analysis
-Five research articles were extracted from a ZIP archive
-and preprocessed using tokenisation, stopword removal
-and lemmatisation.
 
-The analysis included:
-- Text cleaning and preprocessing
-- TF-IDF-based extractive summarisation
-- TextRank-based multi-document summarisation
-- Word-frequency visualisations
-- Thematic analysis visualisations
+For Question 3, I worked with five research articles that were provided in a ZIP file.
+
+The articles were cleaned by removing unnecessary characters and stopwords, followed by text preprocessing.
+
+I used TF-IDF to summarise the first article by selecting important sentences. For the remaining four articles, I used TextRank to create a combined summary.
+
+I also created bar charts to show the most common words and a heatmap to compare the main research themes across the articles.
 
 ## Question 4: Topic Modelling and Visualisation
-Latent Dirichlet Allocation (LDA) was used to identify
-three topics across the research documents.
 
-The analysis includes:
-- Top words associated with each topic
-- Topic distributions across documents
-- Topic-word visualisations
-- Document-topic heatmap
-- Interactive pyLDAvis Intertopic Distance Map
+For Question 4, I used Latent Dirichlet Allocation (LDA) to identify the main topics discussed in the five research articles.
+
+I tested models with four and three topics and selected three because the results were easier to understand and represented the articles better.
+
+The three topics focused on:
+- Mixed research methods and triangulation
+- Developmental research and researcher reflexivity
+- Instrument reliability and Cronbach's alpha
+
+I created charts to show the most important words in each topic and a heatmap to show how the topics were distributed across the articles.
+
+I also used pyLDAvis to create an interactive Intertopic Distance Map to explore the topics and their most relevant words.
 
 ## Repository Structure
-- datasets/ : Original research datasets
-- notebooks/ : Jupyter Notebook containing Questions 1–4
-- deployment/ : Streamlit application and saved model files
-- visualizations/ : Interactive LDA visualisation
+
+The project files are organised into the following folders:
+
+- `datasets/` - Contains the original datasets used in the project.
+- `notebooks/` - Contains the Jupyter Notebook with the code, explanations and results for Questions 1 to 4.
+- `deployment/` - Contains the Streamlit application, saved model files and instructions for running the application.
+- `visualizations/` - Contains the interactive LDA visualisation.
 
 ## Running the Notebook
-1. Download or clone this repository.
-2. Open the notebook in the notebooks folder using Jupyter.
-3. Install the Python packages required by the notebook.
-4. Run the notebook cells in order.
 
-## Running the Web Application
-See deployment/README.md for installation and
-deployment instructions.
+1. Download or clone the repository.
+2. Open the Jupyter Notebook inside the `notebooks` folder.
+3. Install the Python libraries used in the notebook.
+4. Run the cells in order to view the analysis and results.
+
+## Running the Streamlit Application
+
+Instructions for running the web application can be found in `deployment/README.md`.
 
 ## Notes
-The project is intended for academic research and
-demonstration purposes. Model predictions and discovered
-topics are dependent on the supplied datasets.
+
+This project was completed as part of my academic assessment. The models were trained and tested using the provided datasets, so the results may be different when working with other research papers.
